@@ -1,6 +1,5 @@
 const express = require('express');
 var bookRouter = express.Router();
-var sql= require('mssql');
 
 var router = function(nav){
   var books=[
@@ -39,12 +38,7 @@ var router = function(nav){
 
   bookRouter.route('/')
   .get(function(req,res){
-      var request= new sql.Request();
-
-      request.query('select* from books',function(err,recordset)//recordset is only in json
-      {
-            console.log(recordset);
-      })
+     
     res.render('bookListView',{
         title:'books',
          list:['a','b'],

@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express()
-var sql= require('mssql');
 var config={
     user:'books',
     password:'pluralsight1@',
@@ -10,9 +9,7 @@ var config={
         encrypt:true
     }
 };
-sql.connect(config,function(err){
-    console.log(err);
-})
+
 var port=process.env.PORT || 3000;
 var handlebars= require('express-handlebars');
 var  nav=[{
